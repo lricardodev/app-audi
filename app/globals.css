@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  /* Enforce Black Optics (Dark Mode Default) */
+  --background: #000000;
+  --foreground: #ffffff;
+  
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  
+  --glass-bg: rgba(10, 10, 10, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --accent: #E60000; /* Audi Red */
+  --accent-foreground: #ffffff;
+  
+  --muted: #1a1a1a;
+  --muted-foreground: #888888;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  letter-spacing: -0.02em; /* Tighter tracking for modern look */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base custom utilities */
+.glass {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Hide scrollbar for a cleaner look if needed */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
