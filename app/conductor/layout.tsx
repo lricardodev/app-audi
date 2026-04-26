@@ -5,7 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Car, Triangle, Navigation, Mic, User } from "lucide-react";
 
-export default function ConductorLayout({ children }: { children: React.ReactNode }) {
+export default function ConductorLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
 
   const navItems = [
@@ -20,9 +24,8 @@ export default function ConductorLayout({ children }: { children: React.ReactNod
     <div className="min-h-screen bg-[#0b0c10] text-white flex justify-center font-sans">
       {/* Mobile container constraint */}
       <div className="w-full max-w-[430px] h-screen relative flex flex-col overflow-hidden bg-[#111318] shadow-2xl border-x border-white/5">
-        
         {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto scrollbar-hide relative z-0">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide relative z-0">
           {children}
         </main>
 
@@ -33,9 +36,9 @@ export default function ConductorLayout({ children }: { children: React.ReactNod
               const isActive = pathname === item.href;
               const Icon = item.icon;
               return (
-                <Link 
-                  key={item.href} 
-                  href={item.href} 
+                <Link
+                  key={item.href}
+                  href={item.href}
                   className={`flex flex-col items-center gap-1.5 transition-all duration-300 relative ${isActive ? "text-white" : "text-white/40 hover:text-white/80"}`}
                 >
                   <Icon className="w-6 h-6 stroke-[1.5]" />

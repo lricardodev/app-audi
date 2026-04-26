@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
-export default function DiscoverPage() {
+export default function SupportPage() {
   return (
     <div className="min-h-screen bg-[#111318] flex flex-col relative animate-in fade-in duration-700">
       {/* Background Gradient/Image */}
@@ -16,37 +16,37 @@ export default function DiscoverPage() {
         <div className="flex justify-between items-start mb-12">
           <div>
             <h1 className="text-2xl font-semibold tracking-wide">
-              Descubre Audi
+              Soporte Técnico
             </h1>
-            <p className="text-xs text-white/50 mt-1">
-              Contenido de Audi España
-            </p>
+            <p className="text-xs text-white/50 mt-1">Asistencia y Recursos</p>
           </div>
           <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center overflow-hidden border border-white/20 shadow-lg">
-            <Image
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=100&auto=format&fit=crop"
-              width={32}
-              height={32}
-              alt="Profile"
-            />
+            <Image src="/profile.png" width={32} height={32} alt="Profile" />
           </div>
         </div>
 
         {/* Content */}
         <div className="space-y-4 max-w-[85%]">
           <h2 className="text-4xl font-light tracking-tight">
-            Strive for clarity
+            ¿Cómo podemos ayudarte?
           </h2>
           <p className="text-sm text-white/60 leading-relaxed">
-            Descubre nuestra nueva filosofía de diseño a través del Audi Concept
-            C.
+            Encuentra soluciones a tus problemas, consulta manuales detallados o
+            contacta directamente con nuestro equipo de asistencia.
           </p>
           <div className="pt-4">
             <Button
               variant="outline"
               className="rounded-full px-6 py-5 text-sm gap-2 border-white/20 hover:bg-white/10 hover:text-white transition-all bg-transparent text-white"
             >
-              Saber más <ExternalLink className="w-4 h-4" />
+              <a
+                href="https://www.audicenterinsurgentes.com.mx/es/?gad_source=1&gad_campaignid=20925262525&gbraid=0AAAAAqtHY3JBIOwpEETf90Vh5KS1Ur7pf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                Centro de ayuda <ExternalLink className="w-4 h-4" />
+              </a>
             </Button>
           </div>
         </div>
@@ -55,8 +55,8 @@ export default function DiscoverPage() {
         <div className="absolute bottom-28 right-0 w-[120%] -mr-[10%] h-64 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c10] via-transparent to-transparent z-10" />
           <Image
-            src="/audilateral.png"
-            alt="Audi Concept"
+            src="/logo.png"
+            alt="Soporte Técnico"
             fill
             className="object-cover object-right grayscale opacity-70 mix-blend-screen scale-x-[-1] scale-125"
           />
