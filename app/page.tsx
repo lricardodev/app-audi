@@ -82,9 +82,24 @@ export default function Home() {
               priority
             />
           </div>
-          <div className="h-[1px] w-12 bg-white/20 mt-2"></div>
-          <p className="text-white/50 text-xs tracking-widest uppercase mt-4">
-            Interfaz de Telemetría y Control
+
+          {/* Título Principal: audi app (Grande y Llamativo) */}
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-white text-7xl font-extrabold tracking-tighter uppercase mt-8 
+                       bg-gradient-to-b from-white via-gray-200 to-gray-400 
+                       text-transparent bg-clip-text
+                       drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+          >
+            audi app
+          </motion.h1>
+
+          <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-white/40 to-transparent mt-6"></div>
+
+          <p className="text-white/50 text-xs tracking-[0.25em] uppercase mt-5 font-mono">
+            Terminal de Enlace y Telemetría Avanzada
           </p>
         </motion.div>
 
