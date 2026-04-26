@@ -51,17 +51,17 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center relative overflow-hidden text-white font-sans selection:bg-white/20 selection:text-white">
+    <div className="min-h-screen bg-gradient-to-br from-[#111318] via-[#050505] to-black flex flex-col items-center justify-center relative overflow-hidden text-white font-sans selection:bg-white/20 selection:text-white">
       {/* Imagen de Fondo Cinemática */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
         <Image
           src="/audifrontal.png"
-          alt="Fondo de Audi e-tron"
+          alt="Fondo de Audi"
           fill
-          className="object-cover opacity-40 mix-blend-luminosity scale-105"
+          className="object-cover opacity-50 mix-blend-luminosity scale-110 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_40%,transparent_100%)]"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(0,0,0,0.8)_100%)]" />
       </div>
 

@@ -34,7 +34,7 @@ export default function StatusPage() {
         <div className="w-24 h-56 bg-gradient-to-b from-gray-800 to-black rounded-full border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)] flex items-center justify-center relative">
           <div className="w-20 h-40 bg-black/50 rounded-full border border-white/5 absolute"></div>
           <div className="text-[10px] text-white/20 rotate-90 tracking-widest uppercase">
-            Audi e-tron
+            Audi-R8
           </div>
         </div>
       </div>

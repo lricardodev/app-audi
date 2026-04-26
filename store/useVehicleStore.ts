@@ -1,6 +1,6 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
-export type AlertLevel = 'info' | 'warning' | 'critical';
+export type AlertLevel = "info" | "warning" | "critical";
 
 export interface Alert {
   id: string;
@@ -63,10 +63,10 @@ export interface VehicleState {
 
 // Simulated initial complex state
 const INITIAL_VEHICLE_DATA = {
-  id: 'veh_001',
-  model: 'Audi e-tron GT Simulation',
+  id: "veh_001",
+  model: "Audi-R8",
   year: 2026,
-  vin: 'WAUZZZGE2MA00000X',
+  vin: "WAUZZZGE2MA00000X",
   status: {
     isEngineOn: false,
     areDoorsLocked: true,
@@ -90,17 +90,42 @@ const INITIAL_VEHICLE_DATA = {
   },
   telemetry: {
     alerts: [
-      { id: 'a1', message: 'Low washer fluid', level: 'info' as AlertLevel, date: new Date().toISOString() },
-      { id: 'a2', message: 'Scheduled maintenance approaching', level: 'warning' as AlertLevel, date: new Date(Date.now() - 86400000).toISOString() }
+      {
+        id: "a1",
+        message: "Low washer fluid",
+        level: "info" as AlertLevel,
+        date: new Date().toISOString(),
+      },
+      {
+        id: "a2",
+        message: "Scheduled maintenance approaching",
+        level: "warning" as AlertLevel,
+        date: new Date(Date.now() - 86400000).toISOString(),
+      },
     ],
     geofences: [
-      { id: 'geo1', name: 'Home', radius: 500, lat: 19.4326, lng: -99.1332, isActive: true },
-      { id: 'geo2', name: 'Office', radius: 300, lat: 19.4200, lng: -99.1500, isActive: false }
+      {
+        id: "geo1",
+        name: "Home",
+        radius: 500,
+        lat: 19.4326,
+        lng: -99.1332,
+        isActive: true,
+      },
+      {
+        id: "geo2",
+        name: "Office",
+        radius: 300,
+        lat: 19.42,
+        lng: -99.15,
+        isActive: false,
+      },
     ],
   },
 };
 
-const simulateLatency = (ms: number = 800) => new Promise((resolve) => setTimeout(resolve, ms));
+const simulateLatency = (ms: number = 800) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
 
 export const useVehicleStore = create<VehicleState>((set, get) => ({
   ...INITIAL_VEHICLE_DATA,
@@ -137,7 +162,7 @@ export const useVehicleStore = create<VehicleState>((set, get) => ({
 
   setClimateTemp: (temp: number) => {
     set((state) => ({
-      status: { ...state.status, climateTemp: temp }
+      status: { ...state.status, climateTemp: temp },
     }));
-  }
+  },
 }));

@@ -23,7 +23,7 @@ export default function ConductorLayout({
   return (
     <div className="min-h-screen bg-[#0b0c10] text-white flex justify-center font-sans">
       {/* Mobile container constraint */}
-      <div className="w-full max-w-[430px] h-screen relative flex flex-col overflow-hidden bg-[#111318] shadow-2xl border-x border-white/5">
+      <div className="w-full max-w-[430px] h-screen relative flex flex-col overflow-hidden bg-gradient-to-br from-[#212121] via-[#111318] to-[#0b0c10] shadow-2xl border-x border-white/5">
         {/* Main Content Area */}
         <main className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide relative z-0">
           {children}

@@ -23,7 +23,8 @@ export default function ConductorControl() {
       <div className="flex justify-between items-start mb-8 animate-slide-up-fade [animation-delay:100ms]">
         <div>
           <h2 className="text-[28px] font-semibold flex items-center gap-1 tracking-tight">
-            A6 e-tron <ChevronRight className="w-5 h-5 text-white/50 mt-1" />
+            Audi-R8
+            <ChevronRight className="w-5 h-5 text-white/50 mt-1" />
           </h2>
           <div className="flex items-center gap-1.5 text-xs text-white/40 mt-0.5">
             <RefreshCw className="w-3 h-3" /> justo ahora
