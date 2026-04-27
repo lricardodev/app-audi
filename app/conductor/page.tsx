@@ -3,6 +3,7 @@
 import React from "react";
 import { useVehicleStore } from "@/store/useVehicleStore";
 import { GlassCard } from "@/components/ui/GlassCard";
+import PredictiveMaintenanceAlert from "@/components/PredictiveMaintenanceAlert";
 import {
   Lock,
   Unlock,
@@ -18,7 +19,12 @@ export default function ConductorControl() {
   const vehicle = useVehicleStore();
 
   return (
-    <div className="pt-12 px-6 pb-32 animate-in fade-in duration-700">
+    <div className="pb-32 animate-in fade-in duration-700">
+      {/* ── Alerta de Mantenimiento Predictivo ── */}
+      <PredictiveMaintenanceAlert />
+
+      {/* ── Contenido principal ── */}
+      <div className="pt-6 px-6">
       {/* Header section */}
       <div className="flex justify-between items-start mb-8 animate-slide-up-fade [animation-delay:100ms]">
         <div>
@@ -185,6 +191,7 @@ export default function ConductorControl() {
           </GlassCard>
         </div>
       </div>
+      </div>{/* cierre .pt-6.px-6 */}
     </div>
   );
 }
