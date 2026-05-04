@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useVehicleStore } from "@/store/useVehicleStore";
 import { GlassCard } from "@/components/ui/GlassCard";
 import PredictiveMaintenanceAlert from "@/components/PredictiveMaintenanceAlert";
+import ClimateModal from "@/components/ClimateModal";
 import {
   Lock,
   Unlock,
@@ -17,6 +18,7 @@ import Image from "next/image";
 
 export default function ConductorControl() {
   const vehicle = useVehicleStore();
+  const [isClimateModalOpen, setIsClimateModalOpen] = useState(false);
 
   return (
     <div className="pb-32 animate-in fade-in duration-700">
@@ -122,7 +124,7 @@ export default function ConductorControl() {
           {/* Climate */}
           <GlassCard
             className="p-4 bg-white/5 border-white/5 rounded-[20px] flex flex-col justify-between aspect-[4/3.5] cursor-pointer hover:bg-white/10 transition-colors animate-slide-up-fade [animation-delay:500ms]"
-            onClick={vehicle.toggleClimate}
+            onClick={() => setIsClimateModalOpen(true)}
           >
             <div className="flex justify-between items-start">
               <span className="text-sm font-medium text-white/80">
@@ -192,6 +194,7 @@ export default function ConductorControl() {
         </div>
       </div>
       </div>{/* cierre .pt-6.px-6 */}
+      <ClimateModal isOpen={isClimateModalOpen} onClose={() => setIsClimateModalOpen(false)} />
     </div>
   );
 }

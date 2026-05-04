@@ -3,7 +3,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useVehicleStore } from "@/store/useVehicleStore";
-import ScheduleModal from "@/components/ScheduleModal";
 import {
   AlertTriangle,
   ShieldAlert,
@@ -205,8 +204,6 @@ export default function PredictiveMaintenanceAlert() {
         )}
       </AnimatePresence>
 
-      {/* ── Modal de agendamiento (se monta aquí para que el z-index sea correcto) ── */}
-      <ScheduleModal />
     </>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useVehicleStore } from "@/store/useVehicleStore";
 import { MOCK_DEALERSHIPS, DEALERSHIP_MAP } from "@/lib/mockMaintenanceData";
@@ -34,6 +35,8 @@ function formatRating(r: number) {
 }
 
 export default function ScheduleModal() {
+  const router = useRouter();
+  const [showToast, setShowToast] = React.useState(false);
   const {
     isScheduleModalOpen,
     availableSlots,
@@ -57,8 +60,28 @@ export default function ScheduleModal() {
     return map;
   }, [availableSlots]);
 
+  React.useEffect(() => {
+    if (appointmentConfirmed) {
+      setShowToast(true);
+      
+      const hideTimer = setTimeout(() => {
+        setShowToast(false);
+      }, 3500);
+
+      const navTimer = setTimeout(() => {
+        router.push("/conductor/map");
+      }, 2500);
+      
+      return () => {
+        clearTimeout(hideTimer);
+        clearTimeout(navTimer);
+      };
+    }
+  }, [appointmentConfirmed, router]);
+
   return (
-    <AnimatePresence>
+    <>
+      <AnimatePresence>
       {isScheduleModalOpen && (
         <>
           {/* ── Overlay ── */}
@@ -212,5 +235,29 @@ export default function ScheduleModal() {
         </>
       )}
     </AnimatePresence>
+
+      {/* Toast de confirmación estilo macOS */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, x: 50, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: 50, scale: 0.95 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="fixed top-8 right-6 w-auto max-w-[320px] z-[80] bg-[#1c1c1e]/90 border border-white/10 p-3.5 rounded-xl backdrop-blur-2xl flex items-start gap-3 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
+          >
+            <div className="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center shrink-0">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            </div>
+            <div className="flex flex-col pt-0.5">
+              <h3 className="text-white font-medium text-[13px] mb-0.5">Cita confirmada</h3>
+              <p className="text-white/60 text-[11px] leading-snug">
+                Navegación al Audi Center iniciada
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

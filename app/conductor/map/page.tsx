@@ -4,6 +4,8 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useVehicleStore } from "@/store/useVehicleStore";
 import { GlassCard } from "@/components/ui/GlassCard";
+import dynamic from "next/dynamic";
+const HereMap = dynamic(() => import("@/components/HereMap"), { ssr: false });
 import { Navigation, ShieldAlert, Crosshair, MapPin, CalendarCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
@@ -18,11 +20,12 @@ export default function MapPage() {
   return (
     <div className="relative w-full h-full min-h-screen bg-gradient-to-br from-[#1c2135] via-[#0b101d] to-[#020617] overflow-hidden animate-in fade-in duration-700">
 
-      {/* ── Fondo de mapa simulado ── */}
-      <div className="absolute inset-0 bg-transparent overflow-hidden">
+      {/* ── Fondo de mapa real y simulado ── */}
+      <div className="absolute inset-0 overflow-hidden">
+        <HereMap theme="night" center={mapCenter} zoom={15} />
         {/* Grid base */}
         <div
-          className="absolute inset-0 opacity-[0.15]"
+          className="absolute inset-0 opacity-[0.15] pointer-events-none"
           style={{
             backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
             backgroundSize: `40px 40px`,

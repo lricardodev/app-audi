@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Car, Triangle, Navigation, Mic, User } from "lucide-react";
+import { Car, Activity, MapPin, Settings, Bot } from "lucide-react";
+import ScheduleModal from "@/components/ScheduleModal";
 
 export default function ConductorLayout({
   children,
@@ -14,10 +15,10 @@ export default function ConductorLayout({
 
   const navItems = [
     { href: "/conductor", icon: Car, label: "Control" },
-    { href: "/conductor/status", icon: Triangle, label: "Status" },
-    { href: "/conductor/map", icon: Navigation, label: "Map" },
-    { href: "/conductor/assistant", icon: Mic, label: "Assistant" },
-    { href: "/conductor/discover", icon: User, label: "Discover" },
+    { href: "/conductor/telemetry", icon: Activity, label: "Telemetry" },
+    { href: "/conductor/assistant", icon: Bot, label: "Assistant" },
+    { href: "/conductor/map", icon: MapPin, label: "Map" },
+    { href: "/conductor/settings", icon: Settings, label: "Settings" },
   ];
 
   return (
@@ -50,6 +51,8 @@ export default function ConductorLayout({
             })}
           </nav>
         </div>
+
+        <ScheduleModal />
       </div>
     </div>
   );
